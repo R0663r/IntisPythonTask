@@ -1,0 +1,11 @@
+<nav>
+    <ul class="nav nav-pills pull-right">
+        <li role="presentation" ng-class="{active:selectedMenuTab=='home'}" ng-click="updateSelectedMenuTab('home')" ng-if="!isAuthenticated()"><a href="#!/home">Home</a></li>
+        <li role="presentation" ng-class="{active:selectedMenuTab=='signIn'}" ng-click="updateSelectedMenuTab('signIn')" ng-if="!isAuthenticated()"><a href="#!/signIn">SignIn</a></li>
+        <li role="presentation" ng-class="{active:selectedMenuTab=='signup'}" ng-click="updateSelectedMenuTab('signup')" ng-if="!isAuthenticated()"><a href="#!/signup">SignUp</a></li>
+        <li role="presentation" ng-class="{active:selectedMenuTab=='dashboard'}" ng-click="updateSelectedMenuTab('dashboard')" ng-if="isAuthenticated()"><a href="#!/dashboard">Dashboard</a></li>
+        <li role="presentation" ng-class="{active:selectedMenuTab=='myProfile'}" ng-click="updateSelectedMenuTab('myProfile')" ng-if="isAuthenticated()"><a ng-href="#!/profile/{{loggedUser.id}}">MyProfile</a></li>
+        <li role="presentation" ng-class="{active:selectedMenuTab=='signOut'}" ng-click="signOut()" ng-if="isAuthenticated()"><a href="#!/signIn">SignOut</a></li>
+    </ul>
+</nav>
+<h3 class="text-muted">BackOffice</h3>

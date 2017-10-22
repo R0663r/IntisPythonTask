@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="backOfficeApp">
+<head>
+    <meta charset="UTF-8">
+    <title>BackOffice</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.15/toaster.min.css" />
+    <link rel="stylesheet" href="static/css/app.css" />
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.6/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.6/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.6/angular-resource.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.6/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.2.0/toaster.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/satellizer/0.14.1/satellizer.min.js"></script>
+
+    <script src="static/js/app.module.js"></script>
+    <script src="static/js/app.config.js"></script>
+    <script src="static/js/core/core.module.js"></script>
+    <script src="static/js/core/core.service.js"></script>
+    <script src="static/js/core/user/user.module.js"></script>
+    <script src="static/js/core/user/user.service.js"></script>
+    <script src="static/js/core/range/range.filter.js"></script>
+    <script src="static/js/menu/menu.module.js"></script>
+    <script src="static/js/menu/menu.component.js"></script>
+    <script src="static/js/home/home.module.js"></script>
+    <script src="static/js/home/home.component.js"></script>
+    <script src="static/js/signin/signin.module.js"></script>
+    <script src="static/js/signin/signin.component.js"></script>
+    <script src="static/js/signup/signup.module.js"></script>
+    <script src="static/js/signup/signup.component.js"></script>
+    <script src="static/js/dashboard/dashboard.module.js"></script>
+    <script src="static/js/dashboard/dashboard.component.js"></script>
+    <script src="static/js/user-profile/user-profile.module.js"></script>
+    <script src="static/js/user-profile/user-profile.component.js"></script>
+    <script src="static/js/update-user/update-user.module.js"></script>
+    <script src="static/js/update-user/update-user.component.js"></script>
+</head>
+<body>
+    <div class="container">
+        <menu class="header clearfix"></menu>
+        <div ng-view></div>
+
+        <footer class="footer">
+            <p>&copy; Company 2017</p>
+        </footer>
+    </div>
+</body>
+</html>

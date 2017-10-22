@@ -1,0 +1,75 @@
+<div class="container">
+    <ul class="specs">
+        <li>
+            <h4>User info</h4>
+            <dl class="dl-horizontal">
+                <dt>First Name: </dt>
+                <dd><input type="text" id="updateFirstName" class="form-control" ng-model="$ctrl.user.first_name" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}" required=""></dd>
+                <dt>Last Name: </dt>
+                <dd><input type="text" id="updateLastName" class="form-control" ng-model="$ctrl.user.last_name" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}" required=""></dd>
+                <dt>Email: </dt>
+                <dd><input type="email" id="updateEmail" class="form-control" ng-model="$ctrl.user.email" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}" required="" autofocus=""></dd>
+                <dt>Role: </dt>
+                <dd>
+                    <select ng-model="$ctrl.user.role" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}" required="">
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="user">User</option>
+                    </select>
+                </dd>
+                <dt>Active: </dt>
+                <dd>
+                    <select class="form-group" ng-model="$ctrl.user.active" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}" required="">
+                        <option ng-value="true">true</option>
+                        <option ng-value="false">false</option>
+                    </select>
+                </dd>
+                <dt>Created At: </dt>
+                <dd>{{$ctrl.user.created_at}}</dd>
+                <dt>Updated At: </dt>
+                <dd>{{$ctrl.user.updated_at}}</dd>
+            </dl>
+        </li>
+        <li>
+        <h4>Details</h4>
+        <dl class="dl-horizontal specs">
+            <dt>Address: </dt>
+            <dd><input type="text" id="updateAddress" class="form-control" ng-model="$ctrl.user.address" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}"></dd>
+            <dt>Phone: </dt>
+            <dd><input type="text" id="updatePhone" class="form-control" ng-model="$ctrl.user.phone" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}"></dd>
+            <dt>Postal Code: </dt>
+            <dd><input type="text" id="updatePostalCode" class="form-control" ng-model="$ctrl.user.postal_code" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}"></dd>
+            <dt>Date of Brith: </dt>
+            <dd>
+                <div class="row">
+                    <div class="col-xs-4 col-md-4">
+                        <select class="form-control" ng-model="$ctrl.user.date_of_birth.day" ng-disabled="state != 'edit'">
+                            <option ng-repeat="n in [1, 31] | range" ng-value="n">{{n}}</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <select class="form-control" ng-model="$ctrl.user.date_of_birth.month" ng-disabled="state != 'edit'">
+                            <option ng-repeat="n in [1, 12] | range" ng-value="n">{{n}}</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <select class="form-control" ng-model="$ctrl.user.date_of_birth.year" ng-disabled="state != 'edit'">
+                            <option ng-repeat="n in [1900, 2100] | range" ng-value="n">{{n}}</option>
+                        </select>
+                    </div>
+                </div>
+            </dd>
+            <dt>Gender: </dt>
+            <dd>
+                <select class="form-group" ng-model="$ctrl.user.gender" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </dd>
+        </dl>
+        </li>
+    </ul>
+
+    <a ng-click="$ctrl.editUser()" class="btn btn-warning" ng-if="state != 'edit'">Edit</a>
+    <a ng-click="$ctrl.updateUser()" class="btn btn-success" ng-if="state == 'edit'">Apply</a>
+</div>
