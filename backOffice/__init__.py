@@ -13,7 +13,7 @@ def create_app(config_filename):
     return app, db
 
 
-app, db = create_app("config.Config")
+app, db = create_app("backOffice.config.Config")
 
 from backOffice.views import views
 from backOffice.views import user
