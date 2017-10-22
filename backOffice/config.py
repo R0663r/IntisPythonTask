@@ -2,12 +2,12 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = "8@ck0ff!c3_53cr3t_k3y"
+    SECRET_KEY = "intis_secret_key"
 
     # DATABASE SETTINGS
     pg_db_username = "postgres"
-    pg_db_password = "P05t6r3%"
-    pg_db_name = "backOffice"
+    pg_db_password = "password"
+    pg_db_name = "intis"
     pg_db_hostname = "localhost"
 
     # PostgreSQL
