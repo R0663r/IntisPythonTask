@@ -9,7 +9,7 @@ Da bi se aplikacija pokrenula neophodno je sledece:
    To su parametri host, eventualno port, naziv baze, user-a i njegovu lozinku.
 4) Po zelji moze se promjeniti i port na kojem ce raditi Web server u run.py
    fajlu u root direktorijumu aplikacije.
-5) Pokrenuti run.py fajl i potom u browser-u otvoriti link http://localhost:<port>
+5) Pokrenuti run.py fajl i potom u browser-u otvoriti link http://localhost:[[port]]
    Za vrijednost porta treba staviti 5000 ukoliko se ne napravi neka izmjena u
    prethodnom koraku.
 
