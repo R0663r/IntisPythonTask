@@ -5,6 +5,10 @@ angular.module('signin').component('signin', {
     controller: ['$auth', '$location', 'toaster', 'menu1Service', function signinController($auth, $location, toaster, menu1Service) {
         var self = this;
 
+        var privileges = {
+            dashboard: ['admin', 'manager']
+        };
+
         self.signIn = function() {
             self.credentials = {
                 email: self.user.email,
@@ -12,15 +16,19 @@ angular.module('signin').component('signin', {
             };
             // Use Satellizer's $auth.login method to verify the username and password
             $auth.login(self.credentials).then(function(data) {
-                console.log(data.data);
-                console.log(data.data.user);
-                console.log(data.data.user.id);
-                menu1Service.updateLoggedUser(data.data.user);
                 // Set the token received from server
                 $auth.setToken(data);
+                var user = data.data.user;
+                menu1Service.updateLoggedUser(user);
                 // If login is successful, redirect to users list
-				$location.path('/dashboard');
-				menu1Service.updateSelectedTab('dashboard');
+                if(privileges.dashboard.includes(user.role)) {
+                    $location.path('/dashboard');
+                    menu1Service.updateSelectedTab('dashboard');
+                }
+                else {
+                    $location.path('/profile/' + user.id);
+                    menu1Service.updateSelectedTab('myProfile');
+                }
             }).catch(function(response) {
                 // If login is unsuccessful, display relevant error message.
                 toaster.pop({
@@ -33,12 +41,4 @@ angular.module('signin').component('signin', {
             });
         }
     }]
-    // controller: ['$scope', 'menu1Service', function signinController($scope, menu1Service) {
-    //     $scope.$watch(
-    //         menu1Service.getShowMenu1, function(newValue, oldValue) {
-    //             $scope.showMenu1 = menu1Service.getShowMenu1();
-    //         }
-    //     );
-    //     $scope.updateShowMenu1 = menu1Service.updateShowMenu1;
-    // }]
 });

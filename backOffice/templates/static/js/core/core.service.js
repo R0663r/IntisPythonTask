@@ -26,13 +26,13 @@ angular.module('core').service('menu1Service', ['$log', function menu1Service($l
     }
 
     function _updateLoggedUser(u) {
-        $log.log("updateLoggedUser: " + u);
-        $log.log("service-id: " + u.id);
+        // $log.log("updateLoggedUser: " + u);
+        // $log.log("service-id: " + u.id);
         return _loggedUser = u;
     }
 
     function _getLoggedUser() {
-        $log.log("getLoggedUser: " + _loggedUser);
+        // $log.log("getLoggedUser: " + _loggedUser);
         return _loggedUser;
     }
 

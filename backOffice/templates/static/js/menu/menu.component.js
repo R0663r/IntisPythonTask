@@ -3,6 +3,10 @@
 angular.module('menu').component('menu', {
     templateUrl: 'static/js/menu/menu.template.html',
     controller: ['$auth', '$location', '$scope', 'toaster', 'menu1Service', function MenuController($auth, $location, $scope, toaster, menu1Service) {
+        var privileges = {
+            dashboard: ['admin', 'manager']
+        };
+
         //Display the Menu Tabs for authenticated users only
         $scope.isAuthenticated = function() {
             return $auth.isAuthenticated();
@@ -18,9 +22,17 @@ angular.module('menu').component('menu', {
         $scope.$watch(
             menu1Service.getLoggedUser, function(newValue, oldValue) {
                 $scope.loggedUser = menu1Service.getLoggedUser();
-                console.log($scope.loggedUser.id);
             }
         );
+
+        $scope.displayUser = function(state) {
+            menu1Service.updateState(state);
+        };
+
+        $scope.isAuthorized = function(func) {
+            console.log($scope.loggedUser.role);
+            return privileges[func].includes($scope.loggedUser.role);
+        };
 
         $scope.signOut = function() {
             if(!$auth.isAuthenticated()) {
@@ -35,6 +47,7 @@ angular.module('menu').component('menu', {
 
                 $location.url('/signIn')
                 $scope.updateSelectedMenuTab('signIn');
+                menu1Service.updateLoggedUser({})
             })
         }
     }]

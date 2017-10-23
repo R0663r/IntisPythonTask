@@ -1,4 +1,4 @@
-<form role="form" ng-submit="$ctrl.createUser()">
+<form name="SignUpForm" novalidate ng-submit="$ctrl.createUser()">
     <h2 class="form-vertical-heading">Please sign up</h2>
 
     <div class="form-group">
@@ -14,14 +14,15 @@
         <input type="email" id="inputEmail" class="form-control" ng-model="$ctrl.user.email" placeholder="Email address" required="" autofocus="">
     </div>
     <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" id="inputPassword" class="form-control" ng-model="$ctrl.user.password" placeholder="Password" required="">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" ng-model="$ctrl.user.password" placeholder="Password" required="">
     </div>
     <div class="form-group">
-        <label for="inputRePassword">Re-Password</label>
-        <input type="password" id="inputRePassword" class="form-control" ng-model="$ctrl.user.repassword" placeholder="Re-Password" required="">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-model="ctrl.user.confirmPassword" placeholder="Confirm Password" required="">
+        <span class="error" ng-show="signUpForm.password.$error.pwmatch"> Passwords don't match. </span>
     </div>
-    <select class="form-group" ng-model="$ctrl.user.role" required="">
+    <select class="form-group" ng-model="$ctrl.user.role" ng-if="isAuthorized('selectRoles')" required="">
         <option value="" disabled selected>Select role</option>
         <option value="admin">Admin</option>
         <option value="manager">Manager</option>

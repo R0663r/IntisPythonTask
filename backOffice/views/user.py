@@ -83,7 +83,6 @@ def make_public_user(user):
 @app.route("/backoffice/api/v1.0/login", methods=["POST"])
 def login():
     data = request.get_json(force=True)
-    print(data)
     email = data['email']
     password = data['password']
 

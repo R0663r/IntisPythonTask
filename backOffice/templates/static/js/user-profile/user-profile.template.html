@@ -20,8 +20,8 @@
                 <dt>Active: </dt>
                 <dd>
                     <select class="form-group" ng-model="$ctrl.user.active" ng-disabled="state != 'edit'" ng-class="{disabled:state=='show'}" required="">
-                        <option ng-value="true">true</option>
-                        <option ng-value="false">false</option>
+                        <option ng-value="true">{{true | checkmark}}</option>
+                        <option ng-value="false">{{false | checkmark}}</option>
                     </select>
                 </dd>
                 <dt>Created At: </dt>
@@ -70,6 +70,6 @@
         </li>
     </ul>
 
-    <a ng-click="$ctrl.editUser()" class="btn btn-warning" ng-if="state != 'edit'">Edit</a>
-    <a ng-click="$ctrl.updateUser()" class="btn btn-success" ng-if="state == 'edit'">Apply</a>
+    <a ng-click="$ctrl.editUser()" class="btn btn-warning" ng-if="state != 'edit' && isAuthorized('edit')">Edit</a>
+    <a ng-click="$ctrl.updateUser()" class="btn btn-success" ng-if="state == 'edit' && isAuthorized('edit')">Apply</a>
 </div>
